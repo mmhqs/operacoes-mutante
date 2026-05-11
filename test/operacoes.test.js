@@ -12,12 +12,17 @@ const {
 
 describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   // === Testes para o Bloco 1 (1-10) ===
-  test('1. deve somar dois números positivos', () => { expect(soma(2, 3)).toBe(5); });
+  test('1. deve somar dois números positivos', () => { 
+    expect(soma(2, 3)).toBe(5);
+    expect(soma(-2, 3)).toBe(1);
+    expect(soma(0, 0)).toBe(0);
+  });
   test('2. deve subtrair dois números positivos', () => { expect(subtracao(5, 2)).toBe(3); });
   test('3. deve multiplicar dois números positivos', () => { expect(multiplicacao(3, 4)).toBe(12); });
   test('4. deve dividir e lançar erro para divisão por zero', () => {
     expect(divisao(10, 2)).toBe(5);
     expect(() => divisao(5, 0)).toThrow();
+    expect(() => divisao(5, 0)).toThrow('Divisão por zero não é permitida.')
   });
   test('5. deve calcular a potência com expoente positivo', () => { expect(potencia(2, 3)).toBe(8); });
   test('6. deve calcular a raiz quadrada de um quadrado perfeito', () => { expect(raizQuadrada(16)).toBe(4); });
@@ -31,7 +36,10 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   test('12. deve encontrar o valor mínimo em um array', () => { expect(minimoArray([10, 2, 100])).toBe(2); });
   test('13. deve retornar o valor absoluto de um número negativo', () => { expect(valorAbsoluto(-5)).toBe(5); });
   test('14. deve arredondar um número para cima', () => { expect(arredondar(9.8)).toBe(10); });
-  test('15. deve retornar true para um número par', () => { expect(isPar(100)).toBe(true); });
+  test('15. deve retornar true para um número par', () => { 
+    expect(isPar(100)).toBe(true); 
+    expect(isPar(7)).toBe(false)
+  });
   test('16. deve retornar true para um número ímpar', () => { expect(isImpar(7)).toBe(true); });
   test('17. deve calcular uma porcentagem simples', () => { expect(calcularPorcentagem(50, 200)).toBe(100); });
   test('18. deve aumentar um valor em uma porcentagem', () => { expect(aumentarPorcentagem(100, 10)).toBeCloseTo(110); });
