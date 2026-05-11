@@ -247,6 +247,10 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(clamp(0, 0, 10)).toBe(0);
     expect(clamp(10, 0, 10)).toBe(10);
     expect(clamp(50, 20, 40)).toBe(40);
+    expect(clamp(15, 0, 10)).toBe(10);
+    expect(clamp(-5, 0, 10)).toBe(0);
+    expect(clamp(0, 0, 10)).toBe(0);
+    expect(clamp(10, 0, 10)).toBe(10);
   });
   test('37. deve verificar se um número é divisível por outro', () => { 
     expect(isDivisivel(10, 2)).toBe(true);
@@ -275,6 +279,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(inverso(1)).toBe(1);
     expect(inverso(5)).toBe(0.2);
     expect(inverso(10)).toBe(0.1);
+    expect(inverso(4)).toBe(0.25);
+    expect(() => inverso(0)).toThrow('Não é possível inverter o número zero.');
   });
 
   // === Testes para o Bloco 5 (41-50) ===
@@ -327,6 +333,9 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(medianaArray([5])).toBe(5);
     expect(medianaArray([10, 20, 30, 40, 50])).toBe(30);
     expect(medianaArray([1, 3, 5, 7, 9])).toBe(5);
+    expect(medianaArray([10, 1, 5])).toBe(5);
+    expect(medianaArray([1, 2, 3, 4])).toBe(2.5);
+    expect(() => medianaArray([])).toThrow('Array vazio не possui mediana.');
   });
   test('48. deve calcular o dobro de um número', () => { 
     expect(dobro(10)).toBe(20);
