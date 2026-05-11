@@ -19,6 +19,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(soma(10, 20)).toBe(30);
     expect(soma(-5, -3)).toBe(-8);
     expect(soma(100, 1)).toBe(101);
+    expect(soma(2, 3)).toBe(5);
+    expect(soma(-2, 3)).toBe(1);
   });
   test('2. deve subtrair dois números positivos', () => { 
     expect(subtracao(5, 2)).toBe(3);
@@ -37,6 +39,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(divisao(10, 2)).toBe(5);
     expect(() => divisao(5, 0)).toThrow();
     expect(() => divisao(5, 0)).toThrow('Divisão por zero não é permitida.')
+    expect(divisao(10, 2)).toBe(5);
+    expect(() => divisao(5, 0)).toThrow('Divisão por zero não é permitida.');
   });
   test('5. deve calcular a potência com expoente positivo', () => { 
     expect(potencia(2, 3)).toBe(8);
@@ -51,6 +55,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(raizQuadrada(25)).toBe(5);
     expect(raizQuadrada(1)).toBe(1);
     expect(raizQuadrada(100)).toBe(10);
+    expect(raizQuadrada(16)).toBe(4);
+    expect(() => raizQuadrada(-1)).toThrow('Não é possível calcular a raiz quadrada de um número negativo.');
   });
   test('7. deve retornar o resto da divisão', () => { 
     expect(restoDivisao(10, 3)).toBe(1);
@@ -58,6 +64,11 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(restoDivisao(7, 3)).toBe(1);
     expect(restoDivisao(20, 6)).toBe(2);
     expect(restoDivisao(100, 7)).toBe(2);
+    expect(fatorial(4)).toBe(24);
+    expect(fatorial(0)).toBe(1);
+    expect(fatorial(1)).toBe(1);
+    expect(() => fatorial(-1)).toThrow('Fatorial não é definido para números negativos.');
+    expect(fatorial(2)).toBe(2);
   });
   test('8. deve calcular o fatorial de um número maior que 1', () => { 
     expect(fatorial(4)).toBe(24);
@@ -72,6 +83,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(mediaArray([0, 0, 0])).toBe(0);
     expect(mediaArray([1])).toBe(1);
     expect(mediaArray([10, 20])).toBe(15);
+    expect(mediaArray([10, 20])).toBe(15);
+    expect(mediaArray([])).toBe(0);
   });
   test('10. deve somar um array com múltiplos elementos', () => { 
     expect(somaArray([1, 2, 3])).toBe(6);
@@ -88,6 +101,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(maximoArray([100])).toBe(100);
     expect(maximoArray([-5, -10, -1])).toBe(-1);
     expect(maximoArray([0, 10, 5])).toBe(10);
+    expect(maximoArray([1, 50, 10])).toBe(50);
+    expect(() => maximoArray([])).toThrow('Array vazio не possui valor máximo.');
   });
   test('12. deve encontrar o valor mínimo em um array', () => { 
     expect(minimoArray([10, 2, 100])).toBe(2);
@@ -95,6 +110,8 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
     expect(minimoArray([1])).toBe(1);
     expect(minimoArray([-5, -10, -1])).toBe(-10);
     expect(minimoArray([10, 0, 20])).toBe(0);
+    expect(minimoArray([10, 2, 100])).toBe(2);
+    expect(() => minimoArray([])).toThrow('Array vazio не possui valor mínimo.');
   });
   test('13. deve retornar o valor absoluto de um número negativo', () => { 
     expect(valorAbsoluto(-5)).toBe(5);
